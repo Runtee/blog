@@ -1,5 +1,19 @@
 const mongoose=require('mongoose');
 
+mongoose.connect("mongodb://localhost:27017/blog", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  err=>{
+      if(!err){
+          console.log('connection succeeded')
+      }
+      else{
+          console.log('error in connection '+ err)
+      }
+    }
+)
+
 const Schema=mongoose.Schema;
 
 const BlogSchema=new Schema({
@@ -23,14 +37,14 @@ const BlogSchema=new Schema({
 			userId: Schema.Types.ObjectId
 		}
 	],
-    creator:{
-        type:Schema.Types.ObjectId,
-        required:true
-    },
-    created:{
-        type:String,
-        required:true
-    }
+    // creator:{
+    //     type:Schema.Types.ObjectId,
+    //     required:true
+    // },
+    // created:{
+    //     type:String,
+    //     required:true
+    // }
 })
-const Blog = mongoose.model('Blog', BlogSchema);
+
 module.exports=Blog

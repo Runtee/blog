@@ -1,18 +1,6 @@
 const mongoose=require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/blog", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  err=>{
-      if(!err){
-          console.log('connection succeeded')
-      }
-      else{
-          console.log('error in connection '+ err)
-      }
-    }
-)
+
 
 const Schema=mongoose.Schema;
 
@@ -29,22 +17,25 @@ const BlogSchema=new Schema({
         type:String,
         required:true
     },
-    comments: [
-		{
-			body: String,
-			username: String,
-			createdAt: String,
-			userId: Schema.Types.ObjectId
-		}
-	],
+    // comments: [
+	// 	{
+	// 		body: String,
+	// 		username: String,
+	// 		createdAt: String,
+	// 		userId: Schema.Types.ObjectId
+	// 	}
+	// ],
     // creator:{
     //     type:Schema.Types.ObjectId,
+
     //     required:true
     // },
-    // created:{
-    //     type:String,
-    //     required:true
-    // }
+    created:{
+        type:Date,
+        default:Date.now(),
+        required:true
+    }
 })
+const Blog =  mongoose.model('Blog',BlogSchema);
 
 module.exports=Blog

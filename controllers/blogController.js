@@ -7,6 +7,10 @@ module.exports = {
             content,
         });
     },
+    blogWrite:(req, res) => {
+        res.render("blogWrite", {
+        });
+    },
     blogPost: (req, res) => {
         const body = req.body;
         Blog.create(body, (er, blog) => {
@@ -41,10 +45,18 @@ module.exports = {
             content,
         });
     },
-    delete: (req, res) => {
+    blogDelete:(req, res) => {
+        res.render("delete", {
+        });
+    },
+    deletePost: (req, res) => {
         var body = req.body
         var content = Blog.findOneAndDelete({ id: body.id });
         res.render("index", {
+        });
+    },
+    blogUpdate:(req, res) => {
+        res.render("update", {
         });
     },
     update: (req, res) => {
@@ -53,6 +65,5 @@ module.exports = {
 
         res.render("index", {
         });
-    },
-    comment: m,
+    }
 };

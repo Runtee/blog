@@ -75,7 +75,7 @@ export default function Navbar() {
         >
           MUI
         </Typography>
-        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
 
           <Button sx={{ mr: 1, color: 'white' }}>
             Home

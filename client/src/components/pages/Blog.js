@@ -10,22 +10,24 @@ import {
     responsiveFontSizes,
     ThemeProvider,
 } from '@mui/material/styles';
+import Written from "../Written";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
-export default function Blog(){
-return(
-<ThemeProvider theme={theme}>
+export default function Blog({write}) {
+    return (
+        <ThemeProvider theme={theme}>
 
-<Box>
-<Navbar/>
-<CenterImage/>
-<Title/>
-<Body/>
-<Footer/>
-</Box>
-</ThemeProvider>
+            <Box>
+                <Navbar />
+                <Written write={write}/>
+                {/* <CenterImage />
+                <Title />
+                <Body /> */}
+                <Footer />
+            </Box>
+        </ThemeProvider>
 
-)
+    )
 
 }

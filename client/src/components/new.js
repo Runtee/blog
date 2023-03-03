@@ -1,49 +1,40 @@
-import React, { Component } from 'react';
-
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-
-// NOTE: Use the editor from source (not a build)!
-import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-
-import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
-import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
+import React, { useRef } from 'react';
+import { Editor } from '@tinymce/tinymce-react';
 import { Box } from '@mui/material';
 
-
-const editorConfiguration = {
-    plugins: [ Essentials, Bold, Italic, Paragraph ],
-    toolbar: [ 'bold', 'italic' ]
-};
-
-class App extends Component {
-    render() {
-        return (
-            <Box sx={{ backgroundColor: "#ffff", padding: "5% 5%", flexGrow: 1 }}>
-                <h2>Using CKEditor 5 from source in React</h2>
-                <CKEditor
-                    editor={ ClassicEditor }
-                    config={ editorConfiguration }
-                    data="<p>Hello from CKEditor 5!</p>"
-                    onReady={ editor => {
-                        // You can store the "editor" and use when it is needed.
-                        console.log( 'Editor is ready to use!', editor );
-                    } }
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        console.log( { event, editor, data } );
-                    } }
-                    onBlur={ ( event, editor ) => {
-                        console.log( 'Blur.', editor );
-                    } }
-                    onFocus={ ( event, editor ) => {
-                        console.log( 'Focus.', editor );
-                    } }
-                />
-            </Box>
-        );
+export default function App({write,setWrite}) {
+  const editorRef = useRef(null);
+  const log = () => {
+    if (editorRef.current) {
+      setWrite(editorRef.current.getContent())
+      // console.log(write);
     }
+  };
+  return (
+    <Box sx={{ backgroundColor: "#ffff", padding: "5% 5%", flexGrow: 1 }}>
+    <Editor
+        apiKey='1y7nixb0f8w2aukpllckyn86bts3vkv94jylbciykdbfyc8a'
+        onInit={(evt, editor) => editorRef.current = editor}
+        initialValue="<p>This is the initial content of the editor.</p>"
+        init={{
+          height: 500,
+          menubar: true,
+          plugins: [
+            'paste', 'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+            'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+          ],
+          paste_as_text: false,
+            valid_elements: '*[*]',
+            valid_attributes: '*',
+          toolbar: 'undo redo | blocks | ' +
+            'bold italic forecolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+          content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+        }}
+      />
+      <button onClick={log}>Log editor content</button>
+    </Box>
+  );
 }
-
-export default App;

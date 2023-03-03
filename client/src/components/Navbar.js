@@ -3,6 +3,7 @@ import { AppBar, Button, InputBase, Toolbar, Typography } from '@mui/material';
 import {styled} from '@mui/material/styles';
 import  SearchIcon  from '@mui/icons-material/Search';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const StyledToobar = styled(Toolbar)({
@@ -80,9 +81,11 @@ export default function Navbar() {
           <Button sx={{ mr: 1, color: 'white' }}>
             Home
           </Button>
+          <Link to={"/blog"}>
           <Button sx={{ mr: 1, color: 'white' }}>
             About
           </Button>
+          </Link>
           {/* <Button sx={{ mr: 1, color: 'white' }} onClick={handle}>
             <SearchIcon/>
             Search

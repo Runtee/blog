@@ -8,15 +8,17 @@ import {
 import Blog from './components/pages/Blog';
 import All from './components/pages/All';
 import Create from './components/pages/Create'
-
+import { useState } from 'react';
 function App() {
+  const [write,setWrite] = useState("")
+  console.log(write)
   return (<>
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />}/>
-      <Route path="/blog" element={<Blog />}/>
+      <Route path="/blog" element={<Blog write= {write}/>}/>
       <Route path="/all-post" element={<All/>}/>
-      <Route path="/create" element={<Create/>}/>
+      <Route path="/create" element={<Create write= {write} setWrite= {setWrite}/>}/>
       </Routes>
   </BrowserRouter>
   </>

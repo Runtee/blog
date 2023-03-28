@@ -5,7 +5,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import image2 from "../images/bruce-mars-GzumspFznSE-unsplash.jpg"
 import { Grid } from '@mui/material';
 
 export default function MediaCard() {
@@ -16,7 +15,7 @@ export default function MediaCard() {
                 <CardMedia
                     component="img"
                     height="190"
-                    image={image2}
+                    image={"assets/bruce-mars-GzumspFznSE-unsplash.jpg"}
                     alt="green iguana"
                 />
                 <CardContent>

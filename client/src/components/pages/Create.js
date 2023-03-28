@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Navbar from '../Navbar';
-import New from '../new';
+import Write from '../write/Write';
+
 
 
 export default function Home(props){
@@ -8,7 +9,7 @@ export default function Home(props){
     return(
       <Box sx={{ bgcolor: '#ffffff' }} >
         <Navbar/>
-        <New write= {write} setWrite= {setWrite}/>
+        <Write write= {write} setWrite= {setWrite}/>
       </Box>
     )
   }

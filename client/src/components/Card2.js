@@ -4,7 +4,6 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import image2 from "../images/bruce-mars-GzumspFznSE-unsplash.jpg"
 
 export default function Card2() {
     return (
@@ -14,7 +13,7 @@ export default function Card2() {
                 <CardMedia
                     component="img"
                     height="190"
-                    image={image2}
+                    image="assets/bruce-mars-GzumspFznSE-unsplash.jpg"
                     alt="green iguana"
                 />
                 <CardContent>

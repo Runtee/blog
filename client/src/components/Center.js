@@ -1,5 +1,4 @@
 import { Box, Grid, Typography } from "@mui/material";
-import image1 from "../images/cookie-the-pom-gySMaocSdqs-unsplash.jpg"
 
 export default function Center() {
     return (
@@ -27,7 +26,7 @@ export default function Center() {
                     
                 </Grid>
                 <Grid item xs={12} md={6} sx={{ flexGrow: 1 }}>
-                    <img src={image1} alt="img" style={{ width: '100%', height: '400px' }} />
+                    <img src="assets/cookie-the-pom-gySMaocSdqs-unsplash.jpg" alt="img" style={{ width: '100%', height: '400px' }} />
                 </Grid>
             </Grid>
         </Box>

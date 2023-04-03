@@ -74,7 +74,7 @@ export default function Navbar() {
           component="div"
           sx={{ flexGrow: 1 }}
         >
-          MUI
+          Nonso
         </Typography>
         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
 

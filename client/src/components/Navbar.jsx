@@ -14,7 +14,7 @@ export default function Navbar() {
     setHidden((prev) => !hidden);
   }
   return (
-    <nav className="flex px-5 py-3 bg-blue-800 flex-col md:flex-row fixed shadow-lg w-full z-10">
+    <nav className="flex px-5 py-3 bg-gray-950 flex-col md:flex-row fixed shadow-gray-900 shadow-lg w-full z-10">
       <div className="flex justify-between w-full">
         <div className="flex items-center content-center">
           <img src={logo} alt="" className="w-7 h-7 mr-2" />
